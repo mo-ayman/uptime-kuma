@@ -101,7 +101,8 @@ ARG TARGETARCH
 ARG PLATFORM=debian
 ARG FILE=$PLATFORM-$TARGETARCH-$VERSION.tar.gz
 ARG DIST=dist.tar.gz
-
+ARG FILE="./build.zip"
+ARG VERSION="v0.1.0"
 RUN chmod +x /app/extra/upload-github-release-asset.sh
 RUN echo $GITHUB_TOKEN
 RUN echo $VERSION
