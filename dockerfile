@@ -108,8 +108,8 @@ RUN echo $GITHUB_TOKEN
 RUN echo $VERSION
 RUN echo $FILE
 # Full Build
- RUN tar -zcvf $FILE app
- RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=mo-ayman repo=uptime-kuma tag=$VERSION filename=$FILE
+# RUN tar -zcvf $FILE app
+ #RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=mo-ayman repo=uptime-kuma tag=$VERSION filename=$FILE
 
 # Dist only
 #RUN cd /app && tar -zcvf $DIST dist
