@@ -20,8 +20,6 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
-      env:
-        GITHUB_TOKEN: ${{secrets.TOKEN_GITHUB}}
       run: docker build -t moayman0/uptime-kuma . 
 
     - name: Push to Dockerhub
