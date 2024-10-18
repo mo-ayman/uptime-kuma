@@ -103,7 +103,9 @@ ARG FILE=$PLATFORM-$TARGETARCH-$VERSION.tar.gz
 ARG DIST=dist.tar.gz
 
 RUN chmod +x /app/extra/upload-github-release-asset.sh
-
+RUN echo $GITHUB_TOKEN
+RUN echo $VERSION
+RUN echo $FILE
 # Full Build
  RUN tar -zcvf $FILE app
  RUN /app/extra/upload-github-release-asset.sh github_api_token=$GITHUB_TOKEN owner=mo-ayman repo=uptime-kuma tag=$VERSION filename=$FILE
