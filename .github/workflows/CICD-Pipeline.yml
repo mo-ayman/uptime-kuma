@@ -11,7 +11,8 @@ jobs:
 
     steps:
     - name: Update Local Repo
-      run: cd /home/azureuser/uptime-kuma && git pull
+      run: cd /home/azureuser/uptime-kuma && git pull origin master
+
  #   - name: Install Dependencies
  #     run: cd /home/azureuser/uptime-kuma && npm install
     - name: Run
