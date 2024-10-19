@@ -1,21 +1,18 @@
-name: CD Pipeline
+name: CI/CD Pipeline
 
 on:
-  workflow_run:
-    workflows: ["Docker Image CI"]
-    types:
-      - completed
+  push:
+    branches: [ "master" ]
 
 jobs:
 
-  build:
-
+  project-deploy:
     runs-on: self-hosted
 
     steps:
-    - name: Pull Docker image
-      run: sudo docker pull moayman0/uptime-kuma:latest
-    - name: Delete Old docker container
-      run: sudo docker rm -f frontend-app-container || true
-    - name: Run Docker Container
-      run: sudo docker run -d -p 80:80 --name frontend-app-container moayman0/uptime-kuma
+    - name: Update Local Repo
+      run: cd /home/azureuser/uptime-kuma && git fetch && git reset --hard 
+    - name: Install Dependencies
+      run: npm install
+    - name: pm2 restart uptime-kuma
+
