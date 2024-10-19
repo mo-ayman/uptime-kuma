@@ -13,6 +13,6 @@ jobs:
     - name: Update Local Repo
       run: cd /home/azureuser/uptime-kuma && git fetch && git reset --hard 
     - name: Install Dependencies
-      run: npm install
-    - name: pm2 restart uptime-kuma
+      run:  cd /home/azureuser/uptime-kuma && npm install
+    - name:  cd /home/azureuser/uptime-kuma && pm2 restart uptime-kuma
 
