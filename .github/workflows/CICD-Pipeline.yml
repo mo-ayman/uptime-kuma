@@ -15,4 +15,3 @@ jobs:
     - name: Install Dependencies
       run:  cd /home/azureuser/uptime-kuma && npm install
     - name:  cd /home/azureuser/uptime-kuma && pm2 restart uptime-kuma
-
