@@ -1,0 +1,19 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  project-deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Update Local Repo
+      run: cd /home/azureuser/uptime-kuma && git pull origin master
+
+ #   - name: Install Dependencies
+ #     run: cd /home/azureuser/uptime-kuma && npm install
+    - name: Run
+      run: cd /home/azureuser/uptime-kuma && (pm2 list | grep -q uptime-kuma && pm2 restart uptime-kuma || pm2 start server/server.js --name uptime-kuma)
